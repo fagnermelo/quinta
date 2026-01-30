@@ -1,0 +1,46 @@
+/* Responsive overrides for the original (Bootstrap v2 era) fixed grid.
+   Goal: keep the desktop layout intact, but make it fluid on smaller screens. */
+
+html, body { overflow-x: hidden; }
+
+/* Make the main container fluid while preserving max width */
+.container,
+.navbar-static-top .container,
+.navbar-fixed-top .container,
+.navbar-fixed-bottom .container {
+  width: 100% !important;
+  max-width: 945px;
+  box-sizing: border-box;
+  padding-left: 16px !important;
+  padding-right: 16px !important;
+}
+
+/* Home full-bleed image should really be full width */
+#homeImage, #homeImage img { width: 100% !important; }
+
+/* Small screens: stack Bootstrap 2 spans */
+@media (max-width: 979px) {
+  [class*="span"] {
+    float: none !important;
+    display: block !important;
+    width: auto !important;
+    margin-left: 0 !important;
+  }
+  .row { margin-left: 0 !important; }
+  .row:before, .row:after { content: ""; display: table; }
+  .row:after { clear: both; }
+
+  /* Avoid tiny tap targets in nav lists */
+  nav a, .navbar a, #menu a {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    display: inline-block;
+  }
+}
+
+/* Extra small */
+@media (max-width: 600px) {
+  h1 { font-size: 28px; line-height: 1.2; }
+  h2 { font-size: 22px; line-height: 1.25; }
+  h3 { font-size: 18px; line-height: 1.3; }
+}
